@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     
-    let sectionTitles: [String] = ["Trending Movies", "Popular", "Trending TV", "Upcoming Movies", "Top Rated"]
+    let sectionTitles: [String] = ["Trending Movies","Trending TV", "Popular", "Upcoming Movies", "Top Rated"]
     
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -30,6 +30,8 @@ class HomeViewController: UIViewController {
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
         homeFeedTable.tableHeaderView = headerView
+        
+        fetchDataFromInternet()
     }
     
     
@@ -49,7 +51,26 @@ class HomeViewController: UIViewController {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
-
+    
+    private func fetchDataFromInternet(){
+        APICaller.shared.getTrendingMovies { result in
+            switch result{
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        APICaller.shared.getTrendingTV { result in
+            switch result{
+            case .success(let tv):
+                print(tv)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
 }
 
