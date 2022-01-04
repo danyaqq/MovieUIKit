@@ -26,7 +26,7 @@ class APICaller{
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
             guard let data = data else {
@@ -36,7 +36,7 @@ class APICaller{
                 let results = try JSONDecoder().decode(ResultMovies.self, from: data)
                 completion(.success(results.results))
             }catch{
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
         }
@@ -48,7 +48,7 @@ class APICaller{
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
             guard let data = data else {
@@ -58,7 +58,7 @@ class APICaller{
                 let results = try JSONDecoder().decode(ResultMovies.self, from: data)
                 completion(.success(results.results))
             }catch{
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
         }
@@ -69,7 +69,7 @@ class APICaller{
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
             guard let data = data else {
@@ -79,7 +79,7 @@ class APICaller{
                 let results = try JSONDecoder().decode(ResultMovies.self, from: data)
                 completion(.success(results.results))
             }catch{
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
         }
@@ -91,7 +91,7 @@ class APICaller{
         
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
             guard let data = data else {
@@ -101,7 +101,28 @@ class APICaller{
                 let results = try JSONDecoder().decode(ResultMovies.self, from: data)
                 completion(.success(results.results))
             }catch{
-                completion(.failure(error))
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    func getTopRatedMovies(completion: @escaping(Result<[Movie], Error>)->Void){
+        guard let url = URL(string: "\(Constant.baseURL)/3/movie/top_rated?api_key=\(Constant.api_key)&language=en-US&page=1") else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+            guard let data = data else {
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(ResultMovies.self, from: data)
+                completion(.success(results.results))
+            }catch{
+                completion(.failure(APIError.failedToGetData))
                 print(error.localizedDescription)
             }
         }
