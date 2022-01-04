@@ -1,6 +1,6 @@
 //
 //  HeroHeaderUIView.swift
-//  navi
+//  Movie
 //
 //  Created by Даня on 04.01.2022.
 //
@@ -57,7 +57,7 @@ class HeroHeaderUIView: UIView {
         let playButtonConstraints = [
             playButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 75),
             playButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -75),
-            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100),
+            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100)
         ]
         
         let downloadButtonConstraints = [
