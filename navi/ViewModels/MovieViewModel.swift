@@ -7,7 +7,7 @@
 
 import Foundation
 
-
+//ViewModel for movies
 struct MovieViewModel{
     let titleName: String
     let posterURL: String
