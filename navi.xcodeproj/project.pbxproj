@@ -23,6 +23,8 @@
 		376FF52F27847358000F640C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF52E27847358000F640C /* Extensions.swift */; };
 		376FF53127847957000F640C /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53027847957000F640C /* TitleCollectionViewCell.swift */; };
 		376FF53427847A71000F640C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 376FF53327847A71000F640C /* SDWebImage */; };
+		376FF53627852948000F640C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53527852948000F640C /* TitleTableViewCell.swift */; };
+		376FF53827852B40000F640C /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53727852B40000F640C /* MovieViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		376FF52C278471B3000F640C /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		376FF52E27847358000F640C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		376FF53027847957000F640C /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
+		376FF53527852948000F640C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		376FF53727852B40000F640C /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 				37536137278375D800C64FDB /* CollectionViweTableViewCell.swift */,
 				375361392783C5E500C64FDB /* HeroHeaderUIView.swift */,
 				376FF53027847957000F640C /* TitleCollectionViewCell.swift */,
+				376FF53527852948000F640C /* TitleTableViewCell.swift */,
 			);
 			path = VIews;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 		375361332783758A00C64FDB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				376FF53727852B40000F640C /* MovieViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				376FF53627852948000F640C /* TitleTableViewCell.swift in Sources */,
 				3753612F2783721C00C64FDB /* UpcomingViewController.swift in Sources */,
 				3753612C27836F2D00C64FDB /* HomeViewController.swift in Sources */,
 				37536138278375D800C64FDB /* CollectionViweTableViewCell.swift in Sources */,
@@ -230,6 +237,7 @@
 				376FF52F27847358000F640C /* Extensions.swift in Sources */,
 				3753612A27836EF500C64FDB /* MainTabBarViewController.swift in Sources */,
 				37536116278332EF00C64FDB /* AppDelegate.swift in Sources */,
+				376FF53827852B40000F640C /* MovieViewModel.swift in Sources */,
 				376FF52D278471B3000F640C /* Movie.swift in Sources */,
 				376FF53127847957000F640C /* TitleCollectionViewCell.swift in Sources */,
 				37536118278332EF00C64FDB /* SceneDelegate.swift in Sources */,
