@@ -128,4 +128,50 @@ class APICaller{
         }
         task.resume()
     }
+    func getDiscoverMovies(completion: @escaping(Result<[Movie], Error>)->Void){
+        guard let url = URL(string: "\(Constant.baseURL)/3/discover/movie?api_key=\(Constant.api_key)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+            guard let data = data else {
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(ResultMovies.self, from: data)
+                completion(.success(results.results))
+            }catch{
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
+    
+    func searchMovie(with query: String, completion: @escaping(Result<[Movie], Error>)->Void){
+        
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        
+        guard let url = URL(string: "\(Constant.baseURL)/3/search/movie?api_key=\(Constant.api_key)&query=\(query)") else { return }
+        
+        let task = URLSession.shared.dataTask(with: url) { data, _, error in
+            if let error = error {
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+            guard let data = data else {
+                return
+            }
+            do{
+                let results = try JSONDecoder().decode(ResultMovies.self, from: data)
+                completion(.success(results.results))
+            }catch{
+                completion(.failure(APIError.failedToGetData))
+                print(error.localizedDescription)
+            }
+        }
+        task.resume()
+    }
 }

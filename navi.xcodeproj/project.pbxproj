@@ -25,6 +25,7 @@
 		376FF53427847A71000F640C /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 376FF53327847A71000F640C /* SDWebImage */; };
 		376FF53627852948000F640C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53527852948000F640C /* TitleTableViewCell.swift */; };
 		376FF53827852B40000F640C /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53727852B40000F640C /* MovieViewModel.swift */; };
+		376FF53B27877D5A000F640C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53A27877D5A000F640C /* SearchResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		376FF53027847957000F640C /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		376FF53527852948000F640C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		376FF53727852B40000F640C /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		376FF53A27877D5A000F640C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,17 +82,13 @@
 		37536114278332EF00C64FDB /* navi */ = {
 			isa = PBXGroup;
 			children = (
+				376FF5392785309A000F640C /* Common */,
 				37536136278375B700C64FDB /* Managers */,
 				37536135278375AF00C64FDB /* Resources */,
 				375361342783759000C64FDB /* Models */,
 				375361322783757F00C64FDB /* VIews */,
 				375361332783758A00C64FDB /* ViewModels */,
 				3753612D278371A000C64FDB /* Controllers */,
-				37536115278332EF00C64FDB /* AppDelegate.swift */,
-				37536117278332EF00C64FDB /* SceneDelegate.swift */,
-				3753612927836EF500C64FDB /* MainTabBarViewController.swift */,
-				3753611E278332F300C64FDB /* Assets.xcassets */,
-				37536120278332F300C64FDB /* LaunchScreen.storyboard */,
 				37536123278332F300C64FDB /* Info.plist */,
 			);
 			path = navi;
@@ -99,10 +97,8 @@
 		3753612D278371A000C64FDB /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3753612B27836F2D00C64FDB /* HomeViewController.swift */,
-				37536119278332EF00C64FDB /* SearchViewController.swift */,
-				3753612E2783721C00C64FDB /* UpcomingViewController.swift */,
-				37536130278372E900C64FDB /* DownloadsViewController.swift */,
+				376FF53D27877D87000F640C /* General */,
+				376FF53C27877D82000F640C /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -148,6 +144,37 @@
 				376FF52A27846FBC000F640C /* APICaller.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		376FF5392785309A000F640C /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				37536120278332F300C64FDB /* LaunchScreen.storyboard */,
+				3753611E278332F300C64FDB /* Assets.xcassets */,
+				37536117278332EF00C64FDB /* SceneDelegate.swift */,
+				37536115278332EF00C64FDB /* AppDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		376FF53C27877D82000F640C /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3753612927836EF500C64FDB /* MainTabBarViewController.swift */,
+				3753612B27836F2D00C64FDB /* HomeViewController.swift */,
+				37536119278332EF00C64FDB /* SearchViewController.swift */,
+				3753612E2783721C00C64FDB /* UpcomingViewController.swift */,
+				37536130278372E900C64FDB /* DownloadsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		376FF53D27877D87000F640C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				376FF53A27877D5A000F640C /* SearchResultViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +267,7 @@
 				376FF53827852B40000F640C /* MovieViewModel.swift in Sources */,
 				376FF52D278471B3000F640C /* Movie.swift in Sources */,
 				376FF53127847957000F640C /* TitleCollectionViewCell.swift in Sources */,
+				376FF53B27877D5A000F640C /* SearchResultViewController.swift in Sources */,
 				37536118278332EF00C64FDB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

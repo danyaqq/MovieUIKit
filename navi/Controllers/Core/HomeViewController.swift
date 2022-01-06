@@ -16,7 +16,7 @@ enum Sections: Int{
 }
 
 class HomeViewController: UIViewController {
-
+    
     
     let sectionTitles: [String] = ["Trending Movies","Trending TV", "Popular", "Upcoming Movies", "Top Rated"]
     
@@ -26,6 +26,7 @@ class HomeViewController: UIViewController {
         return table
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +35,7 @@ class HomeViewController: UIViewController {
         homeFeedTable.dataSource = self
         homeFeedTable.delegate = self
         
+        title = "Movies"
         configureNavBar()
         
         let headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
@@ -41,25 +43,40 @@ class HomeViewController: UIViewController {
         
     }
     
-    
     private func configureNavBar(){
         var image = UIImage(named: "logo")
         image = image?.withRenderingMode(.alwaysOriginal)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: nil)
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
-                                             UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
+        
+        let leftItemButton = UIButton(type: .custom)
+        leftItemButton.setImage(image, for: .normal)
+        leftItemButton.addTarget(self, action: #selector(leftItemButtonAction(target:)), for: .touchUpInside)
+        leftItemButtonConstraints(button: leftItemButton)
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: leftItemButton)
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil),
+            UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         ]
         navigationController?.navigationBar.tintColor = .white
     }
     
+    private func leftItemButtonConstraints(button: UIButton){
+        button.widthAnchor.constraint(equalToConstant: 36).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
+    }
+    
+    @objc
+    func leftItemButtonAction(target: UIButton){
+        print("Logo touch")
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeFeedTable.frame = view.bounds
     }
     
-
-
+    
+    
 }
 
 

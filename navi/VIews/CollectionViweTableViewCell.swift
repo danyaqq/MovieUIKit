@@ -8,7 +8,7 @@
 import UIKit
 
 class CollectionViweTableViewCell: UITableViewCell {
-
+    
     static let identifier = "CollectionViweTableViewCell"
     
     private var movies: [Movie] = []
@@ -30,7 +30,7 @@ class CollectionViweTableViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError()
     }
@@ -53,7 +53,7 @@ extension CollectionViweTableViewCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else { return UICollectionViewCell() }
         guard let model = movies[indexPath.row].poster_path else { return UICollectionViewCell() }
-                cell.configure(with: model)
+        cell.configure(with: model)
         return cell
     }
     

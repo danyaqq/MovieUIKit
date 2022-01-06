@@ -8,18 +8,18 @@
 import UIKit
 
 class UpcomingViewController: UIViewController {
-
+    
     private var movies: [Movie] = []
     
     private let upcomingTable: UITableView = {
-       let table = UITableView()
+        let table = UITableView()
         table.register(TitleTableViewCell.self, forCellReuseIdentifier: TitleTableViewCell.identifier)
         return table
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         view.backgroundColor = .systemBackground
         title = "Upcoming"
