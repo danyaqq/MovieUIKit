@@ -16,19 +16,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-UB-WTg">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="4PE-aL-0C7"/>
-                                    <constraint firstAttribute="height" constant="240" id="CK6-6r-KmK"/>
-                                </constraints>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="XRV-T1-A0w">
+                                <rect key="frame" x="87" y="295.5" width="240" height="305"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vg5-UB-WTg">
+                                        <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="240" id="njy-8d-GDM"/>
+                                            <constraint firstAttribute="width" constant="240" id="x2D-Xy-djv"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2x-b8-QN8">
+                                        <rect key="frame" x="0.0" y="258" width="240" height="47"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="46"/>
+                                        <color key="textColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemFillColor"/>
+                        <color key="backgroundColor" systemColor="secondarySystemFillColor"/>
                         <constraints>
-                            <constraint firstItem="vg5-UB-WTg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Cdx-wK-RpT"/>
-                            <constraint firstItem="vg5-UB-WTg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="mnw-mh-VoF"/>
+                            <constraint firstItem="XRV-T1-A0w" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Rfn-NW-R2L"/>
+                            <constraint firstItem="XRV-T1-A0w" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gWO-lj-tmI"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,8 +50,8 @@
     </scenes>
     <resources>
         <image name="logo" width="1200" height="1200"/>
-        <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="secondarySystemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.16" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

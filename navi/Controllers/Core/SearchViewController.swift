@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
         title = "Search"
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
         
