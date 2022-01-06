@@ -36,7 +36,9 @@ class TitleCollectionViewCell: UICollectionViewCell {
     
     public func configure(with model: String){
         guard let url = URL(string: "https://image.tmdb.org/t/p/w500/\(model)") else { return }
-        posterImageView.sd_setImage(with: url, completed: nil)
+        DispatchQueue.main.async {
+            self.posterImageView.sd_setImage(with: url, completed: nil)
+        }
     }
     
 }
