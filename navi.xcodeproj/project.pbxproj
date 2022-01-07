@@ -26,6 +26,7 @@
 		376FF53627852948000F640C /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53527852948000F640C /* TitleTableViewCell.swift */; };
 		376FF53827852B40000F640C /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53727852B40000F640C /* MovieViewModel.swift */; };
 		376FF53B27877D5A000F640C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53A27877D5A000F640C /* SearchResultViewController.swift */; };
+		37CE0D832788EFB500C4086C /* YouTubeMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0D822788EFB500C4086C /* YouTubeMovie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		376FF53527852948000F640C /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		376FF53727852B40000F640C /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		376FF53A27877D5A000F640C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		37CE0D822788EFB500C4086C /* YouTubeMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMovie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				376FF52C278471B3000F640C /* Movie.swift */,
+				37CE0D822788EFB500C4086C /* YouTubeMovie.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				3753612F2783721C00C64FDB /* UpcomingViewController.swift in Sources */,
 				3753612C27836F2D00C64FDB /* HomeViewController.swift in Sources */,
 				37536138278375D800C64FDB /* CollectionViweTableViewCell.swift in Sources */,
+				37CE0D832788EFB500C4086C /* YouTubeMovie.swift in Sources */,
 				376FF52B27846FBC000F640C /* APICaller.swift in Sources */,
 				3753613A2783C5E500C64FDB /* HeroHeaderUIView.swift in Sources */,
 				37536131278372E900C64FDB /* DownloadsViewController.swift in Sources */,
