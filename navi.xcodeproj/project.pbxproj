@@ -27,6 +27,8 @@
 		376FF53827852B40000F640C /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53727852B40000F640C /* MovieViewModel.swift */; };
 		376FF53B27877D5A000F640C /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF53A27877D5A000F640C /* SearchResultViewController.swift */; };
 		37CE0D832788EFB500C4086C /* YouTubeMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37CE0D822788EFB500C4086C /* YouTubeMovie.swift */; };
+		37FDA2D4278B7EA1005964CF /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FDA2D3278B7EA1005964CF /* DetailViewController.swift */; };
+		37FDA2D6278B8145005964CF /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37FDA2D5278B8145005964CF /* DetailViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		376FF53727852B40000F640C /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		376FF53A27877D5A000F640C /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		37CE0D822788EFB500C4086C /* YouTubeMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeMovie.swift; sourceTree = "<group>"; };
+		37FDA2D3278B7EA1005964CF /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		37FDA2D5278B8145005964CF /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				376FF53727852B40000F640C /* MovieViewModel.swift */,
+				37FDA2D5278B8145005964CF /* DetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				376FF53A27877D5A000F640C /* SearchResultViewController.swift */,
+				37FDA2D3278B7EA1005964CF /* DetailViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -263,8 +269,10 @@
 				37CE0D832788EFB500C4086C /* YouTubeMovie.swift in Sources */,
 				376FF52B27846FBC000F640C /* APICaller.swift in Sources */,
 				3753613A2783C5E500C64FDB /* HeroHeaderUIView.swift in Sources */,
+				37FDA2D6278B8145005964CF /* DetailViewModel.swift in Sources */,
 				37536131278372E900C64FDB /* DownloadsViewController.swift in Sources */,
 				3753611A278332EF00C64FDB /* SearchViewController.swift in Sources */,
+				37FDA2D4278B7EA1005964CF /* DetailViewController.swift in Sources */,
 				376FF52F27847358000F640C /* Extensions.swift in Sources */,
 				3753612A27836EF500C64FDB /* MainTabBarViewController.swift in Sources */,
 				37536116278332EF00C64FDB /* AppDelegate.swift in Sources */,

@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol CollectionViweTableViewCellDelegate: AnyObject{
+    
+    func collectionViweTableViewCellDidTapCell(_ cell: CollectionViweTableViewCell, viewModel: DetailViewModel)
+
+}
+
 class CollectionViweTableViewCell: UITableViewCell {
     
     static let identifier = "CollectionViweTableViewCell"
+    
+    weak var delegate: CollectionViweTableViewCellDelegate?
     
     private var movies: [Movie] = []
     
@@ -63,16 +71,27 @@ extension CollectionViweTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
-        let title = movies[indexPath.row]
+        
+        let title = self.movies[indexPath.row]
         guard let titleMovie = title.original_title ?? title.original_name else { return }
         
-        APICaller.shared.getMovie(with: titleMovie) { result in
+        APICaller.shared.getMovie(with: titleMovie + " trailer") { [weak self] result in
             switch result{
             case .success(let video):
-                print(video)
+                
+                let title = self?.movies[indexPath.row]
+                guard let titleMovie = title?.original_title ?? title?.original_name else { return }
+                guard let titleOverView = title?.overview else { return }
+                let viewModel = DetailViewModel(title: titleMovie, youtubeVideo: video, titleOverview: titleOverView)
+                
+                guard let strongSelf = self else { return }
+                
+                self?.delegate?.collectionViweTableViewCellDidTapCell(strongSelf, viewModel: viewModel)
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
     }
 }
+
+

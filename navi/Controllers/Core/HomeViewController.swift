@@ -92,6 +92,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViweTableViewCell.identifier, for: indexPath) as? CollectionViweTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        
         switch indexPath.section{
         case Sections.TrendingMovies.rawValue:
             APICaller.shared.getTrendingMovies { result in
@@ -169,5 +172,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
+    }
+}
+
+extension HomeViewController: CollectionViweTableViewCellDelegate{
+    func collectionViweTableViewCellDidTapCell(_ cell: CollectionViweTableViewCell, viewModel: DetailViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = DetailViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
