@@ -92,7 +92,7 @@
 				37536136278375B700C64FDB /* Managers */,
 				37536135278375AF00C64FDB /* Resources */,
 				375361342783759000C64FDB /* Models */,
-				375361322783757F00C64FDB /* VIews */,
+				375361322783757F00C64FDB /* Views */,
 				375361332783758A00C64FDB /* ViewModels */,
 				3753612D278371A000C64FDB /* Controllers */,
 				37536123278332F300C64FDB /* Info.plist */,
@@ -109,7 +109,7 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		375361322783757F00C64FDB /* VIews */ = {
+		375361322783757F00C64FDB /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				37536137278375D800C64FDB /* CollectionViweTableViewCell.swift */,
@@ -117,7 +117,7 @@
 				376FF53027847957000F640C /* TitleCollectionViewCell.swift */,
 				376FF53527852948000F640C /* TitleTableViewCell.swift */,
 			);
-			path = VIews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		375361332783758A00C64FDB /* ViewModels */ = {
