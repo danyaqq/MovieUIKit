@@ -21,8 +21,6 @@ class SearchViewController: UIViewController {
         let controller = UISearchController(searchResultsController: SearchResultViewController())
         controller.searchBar.placeholder = "Search for a Movie or a TV show"
         controller.searchBar.searchBarStyle = .minimal
-        
-        
         return controller
     }()
     
@@ -36,7 +34,7 @@ class SearchViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationItem.searchController = searchController
-        
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
         
         view.addSubview(discoverTable)

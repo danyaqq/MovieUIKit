@@ -46,7 +46,7 @@ class TitleTableViewCell: UITableViewCell {
     
     private func applyConstraints(){
         let titlePosterUIImageViewConstraints = [
-            titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            titlePosterUIImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             titlePosterUIImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titlePosterUIImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             titlePosterUIImageView.widthAnchor.constraint(equalToConstant: 100)
