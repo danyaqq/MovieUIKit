@@ -68,6 +68,17 @@ class SearchViewController: UIViewController {
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+            let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
+                let downloadAction = UIAction(title: "Download", image: UIImage(systemName: "square.and.arrow.down"), identifier: nil, discoverabilityTitle: nil, state: .off) { action in
+                    print("Hello")
+                }
+                return UIMenu(image: nil, identifier: nil, options: UIMenu.Options.displayInline, children: [downloadAction])
+            }
+            return config
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
@@ -82,10 +93,29 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let movie = movies[indexPath.row]
+        guard let titleName = movie.original_name ?? movie.original_title else { return }
+        APICaller.shared.getMovie(with: titleName) { [weak self] result in
+            switch result{
+            case .success(let video):
+                
+                DispatchQueue.main.async {
+                    let vc = DetailViewController()
+                    vc.configure(with: DetailViewModel(title: titleName, youtubeVideo: video, titleOverview: movie.overview ?? "No overview"))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+        
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     
 }
 
-extension SearchViewController: UISearchResultsUpdating{
+extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate{
     func updateSearchResults(for searchController: UISearchController) {
         let searchBar = searchController.searchBar
         
@@ -94,6 +124,8 @@ extension SearchViewController: UISearchResultsUpdating{
               query.trimmingCharacters(in: .whitespaces).count >= 3,
         let resultController = searchController.searchResultsController as? SearchResultViewController
         else { return }
+        
+        resultController.delegate = self
         
         APICaller.shared.searchMovie(with: query) { result in
             DispatchQueue.main.async {
@@ -109,5 +141,12 @@ extension SearchViewController: UISearchResultsUpdating{
         }
     }
     
+    func searchResultViewControllerDidTapItem(_ viewModel: DetailViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = DetailViewController()
+            vc.configure(with: viewModel)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
 }

@@ -15,7 +15,6 @@
 		3753612A27836EF500C64FDB /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753612927836EF500C64FDB /* MainTabBarViewController.swift */; };
 		3753612C27836F2D00C64FDB /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753612B27836F2D00C64FDB /* HomeViewController.swift */; };
 		3753612F2783721C00C64FDB /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753612E2783721C00C64FDB /* UpcomingViewController.swift */; };
-		37536131278372E900C64FDB /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37536130278372E900C64FDB /* DownloadsViewController.swift */; };
 		37536138278375D800C64FDB /* CollectionViweTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37536137278375D800C64FDB /* CollectionViweTableViewCell.swift */; };
 		3753613A2783C5E500C64FDB /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375361392783C5E500C64FDB /* HeroHeaderUIView.swift */; };
 		376FF52B27846FBC000F640C /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376FF52A27846FBC000F640C /* APICaller.swift */; };
@@ -42,7 +41,6 @@
 		3753612927836EF500C64FDB /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		3753612B27836F2D00C64FDB /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		3753612E2783721C00C64FDB /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
-		37536130278372E900C64FDB /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		37536137278375D800C64FDB /* CollectionViweTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViweTableViewCell.swift; sourceTree = "<group>"; };
 		375361392783C5E500C64FDB /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		376FF52A27846FBC000F640C /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
@@ -172,7 +170,6 @@
 				3753612B27836F2D00C64FDB /* HomeViewController.swift */,
 				37536119278332EF00C64FDB /* SearchViewController.swift */,
 				3753612E2783721C00C64FDB /* UpcomingViewController.swift */,
-				37536130278372E900C64FDB /* DownloadsViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 				376FF52B27846FBC000F640C /* APICaller.swift in Sources */,
 				3753613A2783C5E500C64FDB /* HeroHeaderUIView.swift in Sources */,
 				37FDA2D6278B8145005964CF /* DetailViewModel.swift in Sources */,
-				37536131278372E900C64FDB /* DownloadsViewController.swift in Sources */,
 				3753611A278332EF00C64FDB /* SearchViewController.swift in Sources */,
 				37FDA2D4278B7EA1005964CF /* DetailViewController.swift in Sources */,
 				376FF52F27847358000F640C /* Extensions.swift in Sources */,
