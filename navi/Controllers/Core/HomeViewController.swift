@@ -25,6 +25,7 @@ class HomeViewController: UIViewController {
     private let homeFeedTable: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(CollectionViweTableViewCell.self, forCellReuseIdentifier: CollectionViweTableViewCell.identifier)
+        table.separatorStyle = .none
         return table
     }()
     
