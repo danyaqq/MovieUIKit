@@ -9,7 +9,11 @@ import UIKit
 
 class SearchViewController: UIViewController {
     
+// Создание массива с фильмами
+    
     private var movies: [Movie] = []
+    
+// MARK: Создание UI элементов
     
     private let discoverTable: UITableView = {
         let table = UITableView()
@@ -26,9 +30,17 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .systemBackground
+        configureUI()
+        discoverTableConfigure()
+        fetchDiscover()
+    }
+    
+// Функции для разгрузки viewDidLoad
+    
+    private func configureUI(){
         title = "Search"
+        view.backgroundColor = .systemBackground
+        view.addSubview(discoverTable)
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .label
@@ -36,14 +48,14 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
-        
-        view.addSubview(discoverTable)
-        
+    }
+    
+    private func discoverTableConfigure(){
         discoverTable.delegate = self
         discoverTable.dataSource = self
-        
-        fetchDiscover()
     }
+    
+// Вызов функции, которая и перезагружает строки и секции таблицы
     
     private func fetchDiscover(){
         APICaller.shared.getDiscoverMovies { [weak self] result in
@@ -67,7 +79,12 @@ class SearchViewController: UIViewController {
     
 }
 
+// MARK: Расширение SearchViewControllel, которое содержит в себе методы протоколов TableView
+// Разгружаем контроллер от большого количества кода
+
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
+
+// Метод для создания контекстного меню, которое появляется при долгом нажатии на Row
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
             let config = UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { _ in
@@ -79,34 +96,42 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
             return config
     }
     
+// Количество строк в секции
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return movies.count
     }
+
+// Создаём и конфигурируем ячейку
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else { return UITableViewCell() }
-        let model = MovieViewModel(titleName: movies[indexPath.row].original_title ?? movies[indexPath.row].original_name ?? "Unknown", posterURL: movies[indexPath.row].poster_path ?? "")
+        
+        let movie = movies[indexPath.row]
+        let model = MovieViewModel(titleName: movie.originalTitle ?? movie.originalName ?? "Unknown", posterURL: movie.posterPath ?? "")
+        
         cell.configure(with: model)
         return cell
     }
     
+// Задаём высоту для Row
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let movie = movies[indexPath.row]
-        guard let titleName = movie.original_name ?? movie.original_title else { return }
+        guard let titleName = movie.originalName ?? movie.originalTitle else { return }
         APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result{
             case .success(let video):
-                
                 DispatchQueue.main.async {
                     let vc = DetailViewController()
                     vc.configure(with: DetailViewModel(title: titleName, youtubeVideo: video, titleOverview: movie.overview ?? "No overview"))
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
-        
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -114,6 +139,8 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
 }
+
+// MARK: Расширение SearchViewControllel для UISearchController
 
 extension SearchViewController: UISearchResultsUpdating, SearchResultViewControllerDelegate{
     func updateSearchResults(for searchController: UISearchController) {
@@ -127,19 +154,22 @@ extension SearchViewController: UISearchResultsUpdating, SearchResultViewControl
         
         resultController.delegate = self
         
-        APICaller.shared.searchMovie(with: query) { result in
-            DispatchQueue.main.async {
+        APICaller.shared.searchMovie(with: query) {result in
                 switch result{
                 case .success(let movies):
+                    DispatchQueue.main.async {
                     resultController.movies = movies
                     resultController.searchResultCollectionView.reloadData()
+                    }
                 case .failure(let error):
                     print(error.localizedDescription)
-                }
+                
             }
             
         }
     }
+    
+// Пушим DetailViewController по нажатию на ячейку
     
     func searchResultViewControllerDidTapItem(_ viewModel: DetailViewModel) {
         DispatchQueue.main.async { [weak self] in

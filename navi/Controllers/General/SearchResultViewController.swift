@@ -66,7 +66,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else { return UICollectionViewCell() }
-        let titleImagePath = movies[indexPath.row].poster_path
+        let titleImagePath = movies[indexPath.row].posterPath
         cell.configure(with: titleImagePath ?? "")
         return cell
     }
@@ -75,13 +75,13 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let title = movies[indexPath.row]
-        let titleName = title.original_title ?? ""
+        let titleName = title.originalTitle ?? ""
         
         APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result{
             case .success(let video):
                 
-                self?.delegate?.searchResultViewControllerDidTapItem(DetailViewModel(title: title.original_title ?? "", youtubeVideo: video, titleOverview: title.overview ?? "No overview"))
+                self?.delegate?.searchResultViewControllerDidTapItem(DetailViewModel(title: title.originalTitle ?? "", youtubeVideo: video, titleOverview: title.overview ?? "No overview"))
                 
             case .failure(let error):
                 print(error.localizedDescription)

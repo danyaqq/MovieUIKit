@@ -74,7 +74,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TitleTableViewCell.identifier, for: indexPath) as? TitleTableViewCell else { return UITableViewCell() }
         
-        cell.configure(with: MovieViewModel(titleName: movies[indexPath.row].original_name ?? movies[indexPath.row].original_title ?? "Unknown" , posterURL: movies[indexPath.row].poster_path ?? ""))
+        cell.configure(with: MovieViewModel(titleName: movies[indexPath.row].originalName ?? movies[indexPath.row].originalTitle ?? "Unknown" , posterURL: movies[indexPath.row].posterPath ?? ""))
         return cell
     }
     
@@ -85,7 +85,7 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let movie = movies[indexPath.row]
-        guard let titleName = movie.original_name ?? movie.original_title else { return }
+        guard let titleName = movie.originalName ?? movie.originalTitle else { return }
         APICaller.shared.getMovie(with: titleName) { [weak self] result in
             switch result{
             case .success(let video):

@@ -71,7 +71,7 @@ extension CollectionViweTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleCollectionViewCell.identifier, for: indexPath) as? TitleCollectionViewCell else { return UICollectionViewCell() }
-        guard let model = movies[indexPath.row].poster_path else { return UICollectionViewCell() }
+        guard let model = movies[indexPath.row].posterPath else { return UICollectionViewCell() }
         cell.configure(with: model)
         return cell
     }
@@ -84,14 +84,14 @@ extension CollectionViweTableViewCell: UICollectionViewDelegate, UICollectionVie
         collectionView.deselectItem(at: indexPath, animated: true)
         
         let title = self.movies[indexPath.row]
-        guard let titleMovie = title.original_title ?? title.original_name else { return }
+        guard let titleMovie = title.originalTitle ?? title.originalName else { return }
         
         APICaller.shared.getMovie(with: titleMovie + " trailer") { [weak self] result in
             switch result{
             case .success(let video):
                 
                 let title = self?.movies[indexPath.row]
-                guard let titleMovie = title?.original_title ?? title?.original_name else { return }
+                guard let titleMovie = title?.originalTitle ?? title?.originalName else { return }
                 guard let titleOverView = title?.overview else { return }
                 let viewModel = DetailViewModel(title: titleMovie, youtubeVideo: video, titleOverview: titleOverView)
                 

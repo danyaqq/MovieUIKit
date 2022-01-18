@@ -7,20 +7,33 @@
 
 import Foundation
 
-//All movies
 struct ResultMovies: Hashable, Codable{
     let results: [Movie]
 }
 
-//Movie model
+// Модель данных Movie
+
 struct Movie: Hashable, Codable{
+    
     let id: Int
-    let media_type: String?
-    let original_name: String?
-    let original_title: String?
-    let poster_path: String?
+    let mediaType: String?
+    let originalName: String?
+    let originalTitle: String?
+    let posterPath: String?
     let overview: String?
-    let vote_count: Int
-    let release_date: String?
-    let vote_average: Double
+    let voteCount: Int
+    let releaseDate: String?
+    let voteAverage: Double
+    
+    private enum CodingKeys : String, CodingKey {
+        case id, overview
+        case mediaType = "media_type"
+        case originalName = "original_name"
+        case originalTitle = "original_title"
+        case posterPath = "poster_path"
+        case voteCount = "vote_count"
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
+    }
+    
 }
